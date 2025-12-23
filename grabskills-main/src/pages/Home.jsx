@@ -1,21 +1,65 @@
-import { motion, useMotionValue, animate } from "framer-motion";
-import { useEffect, useState } from "react";
-import heroImage from "../assets/hero.jpg";
+import { motion, useMotionValue, animate, useInView, useScroll, useTransform } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+
 import { FaLeaf, FaUsers, FaLightbulb, FaHandHoldingHeart } from "react-icons/fa";
 import FocusCard from "../components/FocusCard";
 import { useNavigate } from "react-router-dom";
 
+
+const ImpactItem = ({ value, suffix, label, description }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.4 }); // trigger when 40% visible
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) {
+      setCount(0); // reset when leaving view
+      return;
+    }
+
+    let start = 0;
+    const duration = 1200;
+    const increment = Math.ceil(value / (duration / 16));
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= value) {
+        setCount(value);
+        clearInterval(counter);
+      } else {
+        setCount(start);
+      }
+    }, 16);
+
+    return () => clearInterval(counter);
+  }, [isInView, value]);
+
+  return (
+    <div ref={ref} className="text-center">
+      <h3 className="text-4xl sm:text-5xl font-bold text-green-500">
+        {count}{suffix}
+      </h3>
+      <p className="uppercase tracking-wide text-sm font-semibold mt-2">
+        {label}
+      </p>
+      <p className="text-gray-600 text-sm mt-1 max-w-xs mx-auto">
+        {description}
+      </p>
+    </div>
+  );
+};
+
 /* Animations */
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0 }
+  hidden: { opacity: 0, y: 60 },
+  visible: { opacity: 3, y: 0 }
 };
 
 const staggerContainer = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.5
     }
   }
 };
@@ -41,7 +85,7 @@ function Counter({ value, suffix = "" }) {
     <motion.span
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
     >
       {display}
       {suffix}
@@ -49,70 +93,188 @@ function Counter({ value, suffix = "" }) {
   );
 }
 
+
+
 export default function Home() {
   const navigate = useNavigate();
+  // Animation Variants
+  const line1Variant = {
+    hidden: { x: "-100vw", opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", damping: 20, stiffness: 50 }
+    }
+  };
+
+  const line2Variant = {
+    hidden: { x: "100vw", opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: { type: "spring", damping: 20, stiffness: 50 }
+    }
+  };
+
+  const typingContainer = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.03, // Speed of "typing"
+      },
+    },
+  };
+
+  const letterVariant = {
+    hidden: { opacity: 0, display: "none" },
+    visible: { opacity: 1, display: "inline" },
+  };
+
+  const subText = "We drive change through education, sustainability, and innovation. Join us in making a global impact today.";
+
+  const containerRef = useRef(null);
+
+  // Track scroll progress of this specific section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
+
+  // 1. Heading Animations: Slide in/out based on scroll
+  // As you scroll down (0 to 1), Line 1 goes from 0 to -500px, Line 2 goes 0 to 500px
+  const xLeft = useTransform(scrollYProgress, [0, 1], [0, -800]);
+  const xRight = useTransform(scrollYProgress, [0, 1], [0, 800]);
+  const opacityFade = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  // 2. Subtext "Erase" effect: Map scroll to width/opacity
+  const textWidth = useTransform(scrollYProgress, [0, 0.4], ["100%", "0%"]);
+
+  // 3. Background Parallax & Zoom
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1.1, 1.3]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <div>
-
+    <div id="homeTop">
       {/* HERO */}
-      <section className="h-screen w-full relative overflow-hidden">
+      
+      <section
+        ref={containerRef}
+        className="relative h-screen w-full overflow-hidden flex items-center justify-center text-white"
+      >
+        {/* --- BACKGROUND ANIMATION --- */}
         <motion.div
-          initial={{ y: "-100%", scale: 1.1 }}
-          animate={{ y: 0, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${heroImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.1 }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "linear"
           }}
-        />
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=2070')`, // Replace with your heroImage variable
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.55 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="absolute inset-0 bg-black"
-        />
-
-        <motion.div
-          initial={{ opacity: 0, y: 80, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.9, delay: 1.2 }}
-          className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 max-w-3xl mx-auto"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white">
-            Empowering Communities <br /> for a Better Tomorrow
-          </h1>
+          {/* Dark Overlay with a subtle moving gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+        </motion.div>
 
-          <p className="mt-6 text-lg text-gray-200">
-            We drive change through education, sustainability, and innovation.
-          </p>
+        {/* --- CONTENT --- */}
+        <div className="relative z-10 text-center px-6 w-full max-w-6xl">
 
+          {/* BIG TEXT: LINE 1 (From Left) */}
+          <div className=" mb-2">
+            <motion.h1
+              style={{ x: xLeft, opacity: opacityFade }}
+              initial={{ x: -2000 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              className="text-5xl md:text-7xl font-black text-white drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]"
+            >
+              Empowering Communities
+            </motion.h1>
+          </div>
+
+          {/* BIG TEXT: LINE 2 (From Right) */}
+          <div className="overflow-hidden mb-8">
+            <motion.h1
+              style={{ x: xRight, opacity: opacityFade }}
+              initial={{ x: 2000 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              className="text-5xl md:text-7xl font-black text-green-400 drop-shadow-[0_5px_15px_rgba(34,197,94,0.3)]"
+            >
+              for a Better Tomorrow
+            </motion.h1>
+          </div>
+
+          {/* SMALL TEXT (Typewriter Animation) */}
+
+
+          <motion.div
+            variants={typingContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.5 }}
+            className="mx-auto max-w-2xl min-h-[3rem] text-center"
+          // Prevents layout shift
+          >
+            <p className="text-lg md:text-xl text-gray-100 font-medium leading-relaxed drop-shadow-lg">
+              {subText.split("").map((char, index) => (
+                <motion.span key={index} variants={letterVariant}>
+                  {char}
+                </motion.span>
+              ))}
+              {/* The "Blinking Cursor" */}
+              <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ repeat: Infinity, duration: 1 }}
+                className="inline-block w-[2px] h-5 bg-green-400 ml-1 align-middle"
+              />
+            </p>
+          </motion.div>
+
+
+          {/* CTA BUTTON */}
           <motion.button
-            whileHover={{ scale: 1.08 }}
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: false, amount: 0.6 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+            whileHover={{ scale: 1.05, backgroundColor: "#22c55e" }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const section = document.getElementById("programs");
-              if (section) {
-                section.scrollIntoView({ behavior: "smooth" });
+            onClick={()=>{
+              const section=document.getElementById("programs");
+              if(section){
+                section.scrollIntoView({behavior:"smooth"});
               }
             }}
-            className="mt-8 px-8 py-3 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600"
+            className="mt-10 bg-green-500 text-black px-10 py-4 rounded-full font-bold text-lg uppercase tracking-widest shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all"
           >
-            Explore Programs
+            Explore programs
           </motion.button>
-        </motion.div>
+        </div>
+
+        {/* Decorative Floating Elements for visual "Attractive" look */}
+        <motion.div
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 4, repeat: Infinity }}
+          className="absolute bottom-20 left-10 w-32 h-32 bg-green-500/10 rounded-full blur-3xl"
+        />
       </section>
 
       {/* WHY */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-900 px-6">
+      <section className="py-20 dark:bg-gray-900 px-6">
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl font-bold">Why We Exist</h2>
@@ -125,44 +287,44 @@ export default function Home() {
       </section>
 
       {/* IMPACT */}
-      <section className="py-24 bg-gray-100 dark:bg-gray-950 px-6">
+
+      <section className="bg-gray-100 py-16 px-4">
         <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="max-w-6xl mx-auto text-center"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ amount: 0.3 }} // NOT once
+          className="max-w-7xl mx-auto"
         >
-          <h2 className="text-4xl font-bold mb-16">OUR IMPACT</h2>
+          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12">
+            Our Impact
+          </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
-            <div>
-              <h3 className="text-5xl font-extrabold text-indigo-600">
-                <Counter value={15} suffix="+" />
-              </h3>
-              <p className="mt-3 font-semibold">Lakh Lives</p>
-            </div>
-
-            <div>
-              <h3 className="text-5xl font-extrabold text-indigo-600">
-                <Counter value={1500} suffix="+" />
-              </h3>
-              <p className="mt-3 font-semibold">Villages</p>
-            </div>
-
-            <div>
-              <h3 className="text-5xl font-extrabold text-indigo-600">
-                <Counter value={350} suffix="+" />
-              </h3>
-              <p className="mt-3 font-semibold">Projects</p>
-            </div>
-
-            <div>
-              <h3 className="text-5xl font-extrabold text-indigo-600">
-                <Counter value={10} suffix="+" />
-              </h3>
-              <p className="mt-3 font-semibold">States</p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <ImpactItem
+              value={20}
+              suffix="+"
+              label="Children"
+              description="Children and families impacted every year"
+            />
+            <ImpactItem
+              value={2000}
+              suffix="+"
+              label="Villages"
+              description="Villages and slums reached nationwide"
+            />
+            <ImpactItem
+              value={400}
+              suffix="+"
+              label="Projects"
+              description="Projects in education, health & empowerment"
+            />
+            <ImpactItem
+              value={27}
+              suffix="+"
+              label="States"
+              description="States including remote regions"
+            />
           </div>
         </motion.div>
       </section>
@@ -176,7 +338,7 @@ export default function Home() {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-4xl mx-auto text-center mb-16"
         >
           <h2 className="text-4xl font-bold">Our Programs</h2>
@@ -189,7 +351,7 @@ export default function Home() {
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           <div className="flex flex-col gap-6">
@@ -223,77 +385,77 @@ export default function Home() {
       </section>
 
       {/* BLOGS */}
-<section className="py-24 px-6 bg-gray-50 dark:bg-gray-900">
-  <motion.div
-    variants={fadeUp}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    className="max-w-4xl mx-auto text-center mb-16"
-  >
-    <h2 className="text-4xl font-bold">Latest Blogs</h2>
-    <p className="mt-4 text-gray-600 dark:text-gray-400">
-      Insights, stories, and updates from our work on the ground.
-    </p>
-  </motion.div>
+      <section className="py-24 px-6 bg-gray-100 dark:bg-gray-900">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          className="max-w-4xl mx-auto text-center mb-16"
+        >
+          <h2 className="text-4xl font-bold">Latest Blogs</h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400">
+            Insights, stories, and updates from our work on the ground.
+          </p>
+        </motion.div>
 
-  <motion.div
-    variants={staggerContainer}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
-  >
-    {[
-      {
-        title: "Building Sustainable Communities",
-        date: "March 2025",
-        desc: "How grassroots initiatives are transforming rural livelihoods."
-      },
-      {
-        title: "Education as a Catalyst for Change",
-        date: "February 2025",
-        desc: "Why skill-based education matters more than ever."
-      },
-      {
-        title: "Women Leading the Way",
-        date: "January 2025",
-        desc: "Stories of women creating impact in their communities."
-      },
-      {
-        title: "Innovation in Social Development",
-        date: "December 2024",
-        desc: "Using technology to solve real-world problems."
-      },
-      {
-        title: "Health & Hygiene Awareness",
-        date: "November 2024",
-        desc: "Small habits that lead to healthier communities."
-      },
-      {
-        title: "Climate Action at the Local Level",
-        date: "October 2024",
-        desc: "How local actions contribute to global impact."
-      }
-    ].map((blog, index) => (
-      <motion.div
-        key={index}
-        variants={fadeUp}
-        className="bg-white dark:bg-gray-950 rounded-xl shadow-md p-6 hover:shadow-lg transition"
-      >
-        <p className="text-sm text-primary font-semibold">{blog.date}</p>
-        <h3 className="mt-3 text-xl font-bold">{blog.title}</h3>
-        <p className="mt-3 text-gray-600 dark:text-gray-400 text-sm">
-          {blog.desc}
-        </p>
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false }}
+          className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"
+        >
+          {[
+            {
+              title: "Building Sustainable Communities",
+              date: "March 2025",
+              desc: "How grassroots initiatives are transforming rural livelihoods."
+            },
+            {
+              title: "Education as a Catalyst for Change",
+              date: "February 2025",
+              desc: "Why skill-based education matters more than ever."
+            },
+            {
+              title: "Women Leading the Way",
+              date: "January 2025",
+              desc: "Stories of women creating impact in their communities."
+            },
+            {
+              title: "Innovation in Social Development",
+              date: "December 2024",
+              desc: "Using technology to solve real-world problems."
+            },
+            {
+              title: "Health & Hygiene Awareness",
+              date: "November 2024",
+              desc: "Small habits that lead to healthier communities."
+            },
+            {
+              title: "Climate Action at the Local Level",
+              date: "October 2024",
+              desc: "How local actions contribute to global impact."
+            }
+          ].map((blog, index) => (
+            <motion.div
+              key={index}
+              variants={fadeUp}
+              className="bg-white dark:bg-gray-950 rounded-xl shadow-md p-6 hover:shadow-lg transition"
+            >
+              <p className="text-sm text-primary font-semibold">{blog.date}</p>
+              <h3 className="mt-3 text-xl font-bold">{blog.title}</h3>
+              <p className="mt-3 text-gray-600 dark:text-gray-400 text-sm">
+                {blog.desc}
+              </p>
 
-        <button className="mt-4 text-primary font-semibold hover:underline">
-          Read More →
-        </button>
-      </motion.div>
-    ))}
-  </motion.div>
-</section>
+              <button className="mt-4 text-primary font-semibold hover:underline">
+                Read More →
+              </button>
+            </motion.div>
+          ))}
+        </motion.div>
+      </section>
 
       {/* CTA */}
       <section className="py-20 bg-primary text-white text-center px-6">
