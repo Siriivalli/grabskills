@@ -4,7 +4,12 @@ import heroImage from "../assets/hero.jpg";
 import { FaLeaf, FaUsers, FaLightbulb, FaHandHoldingHeart } from "react-icons/fa";
 import FocusCard from "../components/FocusCard";
 import { useNavigate } from "react-router-dom";
-
+import educationImg from "../assets/eduicon.png";
+import enovironmentImg from "../assets/environmenticon.png";
+import womenImg from "../assets/womenicon.png";
+import ruralImg from "../assets/ruralicon.png";
+import enterpreneurImg from "../assets/entrepreneuricon.png";
+import healthImg from "../assets/healthicon.png";
 /* Animations */
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -19,23 +24,27 @@ const staggerContainer = {
     }
   }
 };
-function ProgramItem({ icon, title, desc, color, onClick }) {
+function ProgramItem({ image, title, desc, titleColor, onClick }) {
   return (
     <motion.div
       variants={fadeUp}
-      whileHover={{ x: 6 }}
+      whileHover={{ y: -3 }}
       onClick={onClick}
-      className="flex items-start gap-6 cursor-pointer group"
+      className="flex items-start gap-5 cursor-pointer"
     >
-      <div className={`w-14 h-14 flex items-center justify-center rounded-xl ${color} text-2xl`}>
-        {icon}
-      </div>
+      {/* IMAGE ONLY */}
+      <img
+        src={image}
+        alt={title}
+        className="w-14 h-14 object-contain shrink-0"
+      />
 
+      {/* TEXT */}
       <div>
-        <h3 className="font-extrabold tracking-wide text-lg group-hover:underline">
+        <h3 className={`text-lg font-extrabold ${titleColor}`}>
           {title}
         </h3>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 max-w-sm">
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 max-w-sm">
           {desc}
         </p>
       </div>
@@ -217,51 +226,54 @@ export default function Home() {
     {/* LEFT COLUMN */}
     <div className="space-y-16">
       <ProgramItem
-        icon={<FaLeaf />}
-        color="text-green-600 bg-green-100"
+       image={enovironmentImg}
         title="ENVIRONMENT & CLIMATE ACTION"
+        titleColor="text-green-300 dark:text-green-300"
         desc="Promoting sustainability, conservation, and climate resilience within communities."
         onClick={() => navigate("/environment")}
       />
 
       <ProgramItem
-        icon={<FaUsers />}
-        color="text-teal-600 bg-teal-100"
+       image={enterpreneurImg}
         title="ENTREPRENEURSHIP & INNOVATION"
+        titleColor="text-blue-300 dark:text-blue-300"
         desc="Supporting entrepreneurs and startups to create inclusive economic opportunities."
         onClick={() => navigate("/entrepreneurship")}
       />
 
       <ProgramItem
-        icon={<FaLightbulb />}
-        color="text-yellow-600 bg-yellow-100"
-        title="EDUCATION & SKILL DEVELOPMENT"
-        desc="Enhancing learning outcomes and employability through education and training."
-        onClick={() => navigate("/education")}
-      />
+  image={educationImg}
+  title="EDUCATION & SKILL DEVELOPMENT"
+  titleColor="text-pink-300 dark:text-pink-300"
+  desc="Enhancing learning outcomes and employability through education and training."
+  onClick={() => navigate("/education")}
+/>
+
+
+
     </div>
 
     {/* RIGHT COLUMN */}
     <div className="space-y-16">
       <ProgramItem
-        icon={<FaHandHoldingHeart />}
-        color="text-purple-600 bg-purple-100"
+        image={healthImg}
+        titleColor="text-purple-300 dark:text-purple-300"
         title="HEALTH & HYGIENE"
         desc="Improving healthcare access and hygiene awareness in underserved communities."
         onClick={() => navigate("/health")}
       />
 
       <ProgramItem
-        icon={<FaUsers />}
-        color="text-pink-600 bg-pink-100"
+        image={womenImg}
+        titleColor="text-pink-400 dark:text-pink-400"
         title="WOMEN EMPOWERMENT"
         desc="Empowering women through education, leadership, and community participation."
         onClick={() => navigate("/women-empowerment")}
       />
 
       <ProgramItem
-        icon={<FaUsers />}
-        color="text-orange-600 bg-orange-100"
+        image={ruralImg}
+        titleColor="text-orange-300 dark:text-orange-400"
         title="RURAL DEVELOPMENT & LIVELIHOOD"
         desc="Strengthening rural economies and sustainable livelihood opportunities."
         onClick={() => navigate("/rural-development")}
