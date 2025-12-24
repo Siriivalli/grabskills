@@ -74,7 +74,7 @@ export default function Womenempowerment() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why Women Empowerment</h2>
+          <h2 className="text-4xl font-bold text--gray--900 dark:text-white">Why Women Empowerment</h2>
           <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed">
             Women’s empowerment is essential for inclusive and sustainable development because 
             when women learn, earn, and lead, families and entire communities benefit through better
@@ -91,7 +91,7 @@ export default function Womenempowerment() {
       </section>
 
       {/* WHAT WE DO */}
-      <section id="what-we-do" className="py-24 px-6 bg-gray-50 dark:bg-gray-900">
+      <section id="what-we-do " className="py-24 px-6 bg-gray-50 dark:bg-gray-900">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -99,7 +99,7 @@ export default function Womenempowerment() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text--gray--900 dark:text-white">
             What We Do
           </h2>
 
@@ -118,7 +118,7 @@ export default function Womenempowerment() {
       {/* OUR FOCUS */}
       <section className="py-28 px-6 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-20 text-center">Our Focus</h2>
+          <h2 className="text-4xl font-bold mb-20 text-center text--gray--900 dark:text-white">Our Focus</h2>
 
           <div className="relative grid grid-cols-12 items-center gap-y-12">
 
@@ -216,7 +216,7 @@ export default function Womenempowerment() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Skill training</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Skill Training</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Skill training for women plays a crucial role in promoting empowerment by helping them gain financial independence, confidence, and social equality. Through vocational courses, digital literacy, entrepreneurship training, and job-oriented skills, women are able to secure better employment opportunities, start small businesses, and contribute to household and community income. This not only improves their quality of life but also strengthens families and boosts local economies. Empowered women make informed decisions about health, education, and finances, creating a positive ripple effect across generations. Skill training programs are therefore one of the most effective ways to break cycles of poverty, reduce gender inequality, and build inclusive, self-reliant communities.
                </p>
@@ -232,7 +232,7 @@ export default function Womenempowerment() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4">  Safety training</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">  Safety Training</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                  Safety training equips individuals with the knowledge and skills needed to protect themselves and others in workplaces, schools, communities, and daily life. It includes awareness of hazards, safe handling of tools and equipment, emergency response, first aid, and understanding basic safety protocols. This training is important because it reduces accidents, injuries, and health risks, while building a culture of responsibility and preparedness. For women, youth, and workers in rural or vulnerable communities, safety training increases confidence, promotes self-protection, and supports safer working environments. By preventing avoidable incidents and improving overall wellbeing, safety training creates stronger, more resilient communities and contributes to long-term development and empowerment.
               </p>
@@ -260,7 +260,7 @@ export default function Womenempowerment() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Financial Literacy
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Financial Literacy
                 </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Financial literacy helps individuals understand how to manage money wisely, make informed financial decisions, and build secure futures. It includes basic skills like budgeting, saving, banking, understanding interest, using digital payments, and avoiding debt or financial fraud. This knowledge is especially important for women, youth, and rural communities who often lack access to formal financial education. When people learn how to plan expenses, save for emergencies, invest responsibly, and access government or banking services, they gain confidence and financial independence. Financial literacy reduces poverty, prevents exploitation, and empowers families to improve their standard of living. Overall, it creates economically stable households and stronger, more resilient communities.
@@ -276,7 +276,7 @@ export default function Womenempowerment() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Entrepreneurship Programs
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Entrepreneurship Programs
                </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Entrepreneurship programs empower individuals to start and grow their own businesses by teaching them essential skills such as idea development, financial planning, marketing, communication, and problem-solving. These programs are important because they create employment opportunities, reduce dependence on traditional jobs, and encourage innovation within communities. For women, youth, and rural populations, entrepreneurship training provides a pathway to financial independence and helps them turn local challenges into sustainable business opportunities. With support such as mentorship, market linkages, and access to micro-finance, participants gain the confidence and tools needed to build successful enterprises. Overall, entrepreneurship programs boost economic growth, strengthen communities, and promote long-term self-reliance.
@@ -304,7 +304,7 @@ export default function Womenempowerment() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4">Self-Help Groups </h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">Self-Help Groups </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Self-Help Group (SHG) support empowers women and rural communities by helping them come together in small groups to save money, access loans, and build collective strength. SHGs provide a safe platform for women to learn financial management, start small businesses, and support each other's social and economic growth. This approach is important because it increases financial independence, reduces reliance on moneylenders, and builds confidence and leadership skills among members. With training in entrepreneurship, bookkeeping, digital payments, and livelihood activities, SHGs become powerful drivers of community development. SHG support not only improves household income but also leads to better education, health, and decision-making for families, creating stronger, self-reliant, and resilient communities.
               </p>

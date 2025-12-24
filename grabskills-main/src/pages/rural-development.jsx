@@ -74,7 +74,7 @@ export default function Rural() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why Rural Development & Livelihood</h2>
+          <h2 className="text-4xl font-bold text--gray--900 dark:text-white">Why Rural Development & Livelihood</h2>
           <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed">
            Rural Development & Livelihood is vital because most of India’s farmers, artisans, 
            and tribal communities still struggle with unstable incomes, climate risks, 
@@ -97,7 +97,7 @@ export default function Rural() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text--gray--900 dark:text-white">
             What We Do
           </h2>
 
@@ -126,7 +126,7 @@ export default function Rural() {
       {/* OUR FOCUS */}
       <section className="py-28 px-6 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-20 text-center">Our Focus</h2>
+          <h2 className="text-4xl font-bold mb-20 text-center text--gray--900 dark:text-white">Our Focus</h2>
 
           <div className="relative grid grid-cols-12 items-center gap-y-12">
 
@@ -224,7 +224,7 @@ export default function Rural() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Farmer Support</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Farmer Support</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Farmer support programs help strengthen rural livelihoods by providing farmers with modern agricultural knowledge, improved tools, quality seeds, soil testing, and access to sustainable farming practices. These initiatives are important because most rural families depend on farming, yet face challenges like low productivity, climate change, limited market access, and lack of financial resources. By offering training in organic farming, water management, crop diversification, and digital agriculture, NGOs empower farmers to increase their yield and income. Support such as crop insurance awareness, access to government schemes, and direct market linkages reduces risks and ensures fair prices. Overall, farmer support improves food security, stabilizes rural economies, and builds stronger, more resilient agricultural communities.
               </p>
@@ -240,7 +240,7 @@ export default function Rural() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4">  Organic Farming</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">  Organic Farming</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Organic farming promotes healthy food production by avoiding chemical fertilizers and pesticides and using natural methods that protect soil, water, and biodiversity. It is important because it improves soil fertility, reduces pollution, enhances crop quality, and supports long-term sustainability for farmers and the environment. Organic produce is safer for consumers, healthier for families, and fetches better market prices, helping farmers increase their income. By adopting practices like composting, crop rotation, bio-fertilizers, and natural pest control, farmers reduce their dependence on costly chemicals and build climate-resilient farms. Organic farming not only strengthens rural livelihoods but also supports ecological balance and ensures a healthier future for communities.
               </p>
@@ -268,7 +268,7 @@ export default function Rural() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Tribal Development
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Tribal Development
                 </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Tribal development focuses on improving the socio-economic conditions of tribal communities while preserving their culture, identity, and traditional knowledge. It is important because many tribal groups face challenges like limited access to education, healthcare, livelihood opportunities, and basic infrastructure. By providing skill development, education, healthcare support, sustainable livelihood training, and access to government schemes, tribal development programs empower communities to become self-reliant and improve their quality of life. These initiatives also promote forest-based livelihoods, protect land rights, and support traditional crafts, helping tribal families earn a stable income. Strengthening tribal communities creates long-term social inclusion, reduces poverty, and ensures that tribal heritage continues to thrive alongside modern development.
@@ -284,7 +284,7 @@ export default function Rural() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Rural Micro-business Training
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Rural Micro-business Training
                </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Rural micro-business training equips women and youth in villages with practical skills to start and grow small income-generating activities such as tailoring, handicrafts, and food processing. It focuses on hands-on learning, basic financial literacy, and group support so that participants can manage savings, access credit, and run their enterprises confidently. Such training strengthens local livelihoods, reduces dependency on migration, and builds self-reliance and dignity within the community.
@@ -312,7 +312,7 @@ export default function Rural() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Handicraft Promotion</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Handicraft Promotion</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Rural microenterprises are small, locally owned businesses that help villagers earn a stable income by using local skills, resources, and traditions. They are important because they create employment within rural communities, reduce migration to cities, and support economic self-reliance for families. By promoting activities like handicrafts, food processing, tailoring, dairy, small retail, and agri-based businesses, microenterprises enable rural youth and women to start their own ventures with low investment. These enterprises increase household income, boost local markets, and strengthen community resilience. When supported through training, mentorship, access to credit, and market linkages, rural microenterprises become powerful tools for poverty reduction, women’s empowerment, and sustainable development in underserved villages.
                 </p>

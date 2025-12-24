@@ -75,7 +75,7 @@ export default function Health() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why Health & Hygiene</h2>
+          <h2 className="text-4xl font-bold text--gray--900 dark:text-white">Why Health & Hygiene</h2>
           <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed">
             Millions of people in India lack access to basic healthcare services,
             preventive care, and hygiene awareness. Poor health not only affects
@@ -95,7 +95,7 @@ export default function Health() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text--gray--900 dark:text-white">
             What We Do
           </h2>
 
@@ -120,7 +120,7 @@ export default function Health() {
 {/* OUR FOCUS */}
 <section className="py-28 px-6 bg-white dark:bg-gray-950">
   <div className="max-w-7xl mx-auto">
-    <h2 className="text-4xl font-bold mb-20 text-center">Our Focus</h2>
+    <h2 className="text-4xl font-bold mb-20 text-center text--gray--900 dark:text-white">Our Focus</h2>
 
     <div className="relative grid grid-cols-12 items-center gap-y-12">
 
@@ -188,11 +188,6 @@ export default function Health() {
       </div>
 
       {/* BOTTOM */}
-      <div className="col-span-12 flex justify-center mt-16">
-        <div className="bg-cyan-200 px-10 py-5 rounded-xl font-semibold text-center">
-          Improve Access to Maternal & Child Healthcare
-        </div>
-      </div>
 
     </div>
   </div>
@@ -218,7 +213,7 @@ export default function Health() {
           />
 
           <div>
-            <h3 className="text-3xl font-bold mb-4">Menstrual Hygiene</h3>
+            <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">Menstrual Hygiene</h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Menstrual hygiene is important because it helps girls and women manage their periods safely, comfortably, and with confidence. Proper menstrual hygiene includes using clean sanitary products, maintaining personal cleanliness, and understanding how to care for one’s health during menstruation. It prevents infections, reduces discomfort, and encourages regular school or work attendance. By spreading awareness and providing access to the right products, menstrual hygiene empowers girls and women to live healthy, dignified lives without fear or shame.
             </p>
@@ -234,7 +229,7 @@ export default function Health() {
           className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
         >
           <div>
-            <h3 className="text-3xl font-bold mb-4">Rural Health Camps</h3>
+            <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">Rural Health Camps</h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Rural health camps are community-based medical programs designed to bring essential healthcare services directly to villages where hospitals and doctors are often unavailable. These camps provide free check-ups, medicines, vaccinations, screenings for common diseases, and health awareness sessions. They are important because they help detect illnesses early, reduce health risks, and educate people about hygiene, nutrition, maternal care, and preventive health practices. By offering immediate treatment and guiding people on when to seek advanced care, rural health camps improve the overall well-being of underserved communities. They ensure that even the poorest and most remote families receive timely, affordable, and life-saving healthcare support.
             </p>
@@ -262,7 +257,7 @@ export default function Health() {
           />
 
           <div>
-            <h3 className="text-3xl font-bold mb-4">Sanitation & Clean Water</h3>
+            <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">Sanitation & Clean Water</h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Sanitation and clean water are essential for maintaining good health and preventing the spread of diseases in communities. Proper sanitation includes using clean toilets, practicing good hygiene, and safely managing waste, while clean drinking water protects people from waterborne illnesses. These services are especially important in rural and underserved areas, where lack of access can lead to serious health problems, poor school attendance, and reduced productivity. By promoting hygiene awareness, building safe toilets, and providing clean water facilities, communities become healthier, safer, and more empowered to lead better lives. Overall, sanitation and clean water are the foundation for good health, dignity, and sustainable development.
             </p>
@@ -277,7 +272,7 @@ export default function Health() {
           className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
         >
           <div>
-            <h3 className="text-3xl font-bold mb-4">Mental health awareness</h3>
+            <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">Mental health awareness</h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Mental health awareness helps individuals understand the importance of emotional well-being, stress management, and seeking support when needed. It encourages people to talk openly about their feelings, reduces stigma around mental health issues, and promotes early detection of problems like anxiety, depression, and stress. By educating communities about healthy coping methods, counseling support, and the value of self-care, mental health awareness empowers people to lead happier, balanced, and more productive lives. Overall, it strengthens emotional resilience, improves relationships, and builds a supportive environment where everyone feels heard, valued, and cared for.
             </p>
@@ -304,7 +299,7 @@ export default function Health() {
           />
 
           <div>
-            <h3 className="text-3xl font-bold mb-4">Preventive healthcare</h3>
+            <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">Preventive healthcare</h3>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Preventive healthcare focuses on reducing the risk of diseases before they occur by promoting healthy habits, regular check-ups, vaccinations, and early screenings. It is important because it helps people detect health issues at an early stage, avoid serious illnesses, and maintain a better quality of life. By educating communities about nutrition, hygiene, exercise, and disease prevention, preventive healthcare lowers medical costs, reduces hospital visits, and strengthens overall well-being. It empowers individuals to take responsibility for their health and supports healthier, longer, and more productive lives.
             </p>

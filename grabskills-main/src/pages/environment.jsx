@@ -74,7 +74,7 @@ export default function Environment() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why clean environment</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">Why clean environment</h2>
           <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed">
             Million of communities across India faces growing environment challenges such
             as pollutions, waste management, deforestations and the impact of climate change
@@ -97,7 +97,7 @@ export default function Environment() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text--gray--900 dark:text-white">
             What We Do
           </h2>
 
@@ -123,7 +123,7 @@ export default function Environment() {
       {/* OUR FOCUS */}
       <section className="py-28 px-6 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-20 text-center">Our Focus</h2>
+          <h2 className="text-4xl font-bold mb-20 text-center text-gray-900 dark:text-white">Our Focus</h2>
 
           <div className="relative grid grid-cols-12 items-center gap-y-12">
 
@@ -221,7 +221,7 @@ export default function Environment() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Waste management</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Waste management</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Effective waste management is essential to protect public health, reduce pollution, and keep our neighborhoods clean and livable. By segregating waste at source into wet, dry, and hazardous streams, communities can increase recycling, support composting, and reduce the load on landfills. When citizens, NGOs, and local governments collaborate through clean-up drives, awareness programs, and door-to-door collection, they help build greener cities and create new opportunities in recycling and resource recovery.
               </p>
@@ -237,7 +237,7 @@ export default function Environment() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4">  Plastic reduction</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">  Plastic reduction</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Reducing plastic use is one of the simplest ways to protect the environment and our health. By choosing reusable bags and bottles, properly segregating plastic waste for recycling, and avoiding single‑use items, communities can cut pollution in landfills, streets, and oceans. These small daily actions conserve resources, reduce greenhouse gas emissions, and help keep parks, rivers, and neighborhoods clean for everyone.
               </p>
@@ -265,7 +265,7 @@ export default function Environment() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Clean Himalayas/Clean river missions
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Clean Himalayas/Clean river missions
                 </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Clean Himalaya and clean river missions aim to protect fragile mountain ecosystems, safeguard drinking water, and preserve the cultural and spiritual value of rivers. These campaigns encourage citizens to remove litter from riverbanks, reduce plastic use, and manage waste responsibly so it does not flow downstream into towns and oceans. By involving local communities, tourists, schools, and NGOs, such initiatives help restore water quality, support biodiversity, and ensure that future generations can enjoy healthy rivers and pristine Himalayan landscapes.
@@ -281,7 +281,7 @@ export default function Environment() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Tree plantation & biodiversity projects
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Tree plantation & biodiversity projects
                </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Tree plantation plays a vital role in conserving biodiversity by creating and connecting habitats for countless species of plants, insects, birds, and animals. When native trees are planted and protected, they stabilize soil, enrich it with organic matter, and provide food and shelter that support complex, resilient ecosystems. Large, diverse green areas also act as carbon sinks, help regulate local climate, and maintain clean air and water, which are essential for both wildlife and human communities.
@@ -309,7 +309,7 @@ export default function Environment() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4">  Sustainable tourism </h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">  Sustainable tourism </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Sustainable tourism is a way of traveling that protects the environment, respects local cultures, and benefits local communities. It focuses on reducing pollution and waste, conserving natural resources, and supporting businesses that treat workers fairly. By choosing eco‑friendly transport and stays, avoiding over‑touristed spots, and engaging responsibly with local people and wildlife, travelers help ensure that destinations remain healthy and vibrant for future generations.
               </p>

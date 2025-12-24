@@ -74,7 +74,7 @@ export default function Entrepreneurship() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why Entrepreneurship</h2>
+          <h2 className="text-4xl font-bold text--gray--900 dark:text-white">Why Entrepreneurship</h2>
           <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed">
             Entrepreneurship and innovation help communities move from dependency to self-reliance, 
             creating local jobs and dignified livelihoods instead of short‑term charity. 
@@ -97,7 +97,7 @@ export default function Entrepreneurship() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text--gray--900 dark:text-white">
             What We Do
           </h2>
 
@@ -132,7 +132,7 @@ export default function Entrepreneurship() {
       {/* OUR FOCUS */}
       <section className="py-28 px-6 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-20 text-center">Our Focus</h2>
+          <h2 className="text-4xl font-bold mb-20 text-center text--gray--900 dark:text-white">Our Focus</h2>
 
           <div className="relative grid grid-cols-12 items-center gap-y-12">
 
@@ -230,7 +230,7 @@ export default function Entrepreneurship() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Startup Bootcamps</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Startup Bootcamps</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               Startup bootcamps are intensive, short-term programs that help aspiring entrepreneurs rapidly turn ideas into viable ventures. They combine hands-on workshops, expert mentoring, and peer collaboration to build core skills in business models, product design, technology, and pitching. These bootcamps create a supportive environment where participants can test their concepts, learn from real-world feedback, and connect with a community of founders, investors, and industry leaders, ultimately accelerating their journey from idea to impact.
               </p>
@@ -246,7 +246,7 @@ export default function Entrepreneurship() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4">  Startupthon Competitions</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">  Startupthon Competitions</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Startupthon competitions are dynamic events that bring together aspiring entrepreneurs, students, and innovators to collaborate, ideate, and build solutions for real-world challenges. These competitions foster creativity, teamwork, and problem-solving, encouraging participants to develop business ideas, pitch them, and sometimes even launch startups.
               </p>
@@ -274,7 +274,7 @@ export default function Entrepreneurship() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Women Entrepreneurship
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Women Entrepreneurship
                 </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Women empowerment is about providing women with the confidence, resources, and opportunities to make independent choices and lead fulfilling lives. It involves breaking barriers, encouraging education, supporting entrepreneurship, and ensuring equal rights, helping women contribute meaningfully to society and the economy
@@ -290,7 +290,7 @@ export default function Entrepreneurship() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Rural Micro-business Training
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Rural Micro-business Training
                </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Rural micro-business training equips women and youth in villages with practical skills to start and grow small income-generating activities such as tailoring, handicrafts, and food processing. It focuses on hands-on learning, basic financial literacy, and group support so that participants can manage savings, access credit, and run their enterprises confidently. Such training strengthens local livelihoods, reduces dependency on migration, and builds self-reliance and dignity within the community.
@@ -318,7 +318,7 @@ export default function Entrepreneurship() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4">  Innovation Labs in Colleges</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">  Innovation Labs in Colleges</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Innovation labs in colleges provide students with a creative space to experiment with new ideas, technologies, and solutions to real-world problems. These labs encourage teamwork, hands-on learning, and entrepreneurship by offering access to tools, mentorship, and resources that help students turn their concepts into workable prototypes and startups.
                 </p>

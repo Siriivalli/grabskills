@@ -74,7 +74,7 @@ export default function Education() {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why Education and Skill Development</h2>
+          <h2 className="text-4xl font-bold text--gray--900 dark:text-white">Why Education and Skill Development</h2>
           <p className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed">
             Education and skill development are at the core of long‑term social change because they give
             young people the tools to think critically, solve problems, and participate fully in the economy 
@@ -100,7 +100,7 @@ export default function Education() {
           viewport={{ once: true }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-12">
+          <h2 className="text-4xl font-bold text-center mb-12 text--gray--900 dark:text-white">
             What We Do
           </h2>
 
@@ -131,7 +131,7 @@ export default function Education() {
       {/* OUR FOCUS */}
       <section className="py-28 px-6 bg-white dark:bg-gray-950">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-20 text-center">Our Focus</h2>
+          <h2 className="text-4xl font-bold mb-20 text-center text--gray--900 dark:text-white">Our Focus</h2>
 
           <div className="relative grid grid-cols-12 items-center gap-y-12">
 
@@ -229,7 +229,7 @@ export default function Education() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Digital Literacy</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Digital Literacy</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
              Digital literacy is important because it empowers individuals to confidently use computers, smartphones, and the internet in their daily lives. It helps people access information, apply for jobs, learn new skills, and stay connected with the world. With strong digital skills, individuals can study online, communicate effectively, manage online services, and improve their career opportunities. Overall, digital literacy builds confidence, increases independence, and opens doors to better education, employment, and personal growth.
               </p>
@@ -245,7 +245,7 @@ export default function Education() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4">  Employability Skills</h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">  Employability Skills</h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 Employable skills are the essential abilities that help individuals get a job, perform well at work, and grow in their career. These include communication, teamwork, problem-solving, time management, basic computer skills, and professionalism. Learning employable skills increases a person’s confidence, improves their chances of finding good job opportunities, and helps them adapt to different work environments. Overall, these skills prepare individuals to become job-ready, responsible, and capable of building a stable and successful future.
               </p>
@@ -273,7 +273,7 @@ export default function Education() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4">AI & Coding Programs
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300">AI & Coding Programs
                 </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               AI and coding programs teach people how to build and use software and intelligent tools — from writing code that automates tasks to understanding basics of artificial intelligence like data, models, and simple machine learning applications. These programs give learners practical skills such as problem-solving, logical thinking, creating websites or apps, and using AI to analyze data or automate everyday work. By learning coding and AI, participants become more employable (software jobs, data roles, digital services), can start small businesses or freelance, and gain the confidence to adapt as technology changes — ultimately opening pathways to better jobs, higher income, and more control over their future.
@@ -289,7 +289,7 @@ export default function Education() {
             className="grid md:grid-cols-2 gap-12 items-center bg-green-100 dark:bg-gray-800 rounded-3xl p-10"
           >
             <div>
-              <h3 className="text-3xl font-bold mb-4"> Career Counselling
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> Career Counselling
                </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Career counselling helps individuals understand their strengths, interests, and goals so they can choose the right career path with confidence. It provides guidance on education options, job opportunities, required skills, and how to prepare for future careers. Through expert advice and personalized support, career counselling helps people make informed decisions, avoid confusion, set clear goals, and build a strong plan for their future. Overall, it empowers individuals to choose a career that matches their abilities and leads to long-term growth and satisfaction.
@@ -317,7 +317,7 @@ export default function Education() {
             />
 
             <div>
-              <h3 className="text-3xl font-bold mb-4"> School/College Training </h3>
+              <h3 className="text-3xl font-bold mb-4 text-blue-300 dark:text-green-300"> School/College Training </h3>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                Colleges and school trainings provide students with practical knowledge, skill-building activities, and real-world exposure that help them grow academically and personally. These trainings strengthen important skills such as communication, teamwork, leadership, and basic technical abilities, making students more confident and prepared for future opportunities. They also help students understand their interests, choose the right career path, and develop the discipline needed for higher education and professional life. Overall, such training programs build a strong foundation for students to succeed in both studies and future careers.
                 </p>
