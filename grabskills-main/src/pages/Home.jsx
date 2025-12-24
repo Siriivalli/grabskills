@@ -2,15 +2,22 @@ import { motion, useMotionValue, animate, useInView, useScroll, useTransform } f
 import { useEffect, useState, useRef } from "react";
 
 import { FaLeaf, FaUsers, FaLightbulb, FaHandHoldingHeart } from "react-icons/fa";
-import background from "../assets/backgroung.avif";
+import FocusCard from "../components/FocusCard";
 import { useNavigate } from "react-router-dom";
 
+import educationImg from "../assets/eduicon.png";
+import enovironmentImg from "../assets/environmenticon.png";
+import womenImg from "../assets/womenicon.png";
+import ruralImg from "../assets/ruralicon.png";
+import enterpreneurImg from "../assets/entrepreneuricon.png";
+import healthImg from "../assets/healthicon.png";
 
 
 const ImpactItem = ({ value, suffix, label, description }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { amount: 0.4 }); // trigger when 40% visible
   const [count, setCount] = useState(0);
+  
 
   useEffect(() => {
     if (!isInView) {
@@ -37,13 +44,13 @@ const ImpactItem = ({ value, suffix, label, description }) => {
 
   return (
     <div ref={ref} className="text-center">
-      <h3 className="text-4xl sm:text-5xl font-bold text-green-500 dark:text-white">
+      <h3 className="text-4xl sm:text-5xl font-bold text-green-500">
         {count}{suffix}
       </h3>
       <p className="uppercase tracking-wide text-sm font-semibold mt-2">
         {label}
       </p>
-      <p className="text-gray-600 dark:text-green-400 text-sm mt-1 max-w-xs mx-auto">
+      <p className="text-gray-600 text-sm mt-1 max-w-xs mx-auto">
         {description}
       </p>
     </div>
@@ -64,30 +71,33 @@ const staggerContainer = {
     }
   }
 };
-function ProgramItem({ icon, title, desc, color, onClick }) {
+function ProgramItem({ image, title, desc, titleColor, onClick }) {
   return (
     <motion.div
       variants={fadeUp}
-      whileHover={{ x: 6 }}
+      whileHover={{ y: -3 }}
       onClick={onClick}
-      className="flex items-start gap-6 cursor-pointer group"
+      className="flex items-start gap-5 cursor-pointer"
     >
-      <div className={`w-14 h-14 flex items-center justify-center rounded-xl ${color} text-2xl`}>
-        {icon}
-      </div>
+      {/* IMAGE ONLY */}
+      <img
+        src={image}
+        alt={title}
+        className="w-14 h-14 object-contain shrink-0"
+      />
 
+      {/* TEXT */}
       <div>
-        <h3 className="font-extrabold tracking-wide text-lg group-hover:underline">
+        <h3 className={`text-lg font-extrabold ${titleColor}`}>
           {title}
         </h3>
-        <p className="mt-2 text-gray-600 dark:text-gray-400 max-w-sm">
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 max-w-sm">
           {desc}
         </p>
       </div>
     </motion.div>
   );
 }
-
 
 /* Counter */
 function Counter({ value, suffix = "" }) {
@@ -182,7 +192,6 @@ export default function Home() {
   return (
     <div id="homeTop">
       {/* HERO */}
-      
       <section
         ref={containerRef}
         className="relative h-screen w-full overflow-hidden flex items-center justify-center text-white"
@@ -199,7 +208,7 @@ export default function Home() {
           }}
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url(${background})`, // Replace with your heroImage variable
+            backgroundImage: `url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=2070')`, // Replace with your heroImage variable
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -294,7 +303,7 @@ export default function Home() {
       </section>
 
       {/* WHY */}
-      <section className="py-20 dark:bg-gray-800 px-6">
+      <section className="py-20 dark:bg-gray-900 px-6">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -302,8 +311,8 @@ export default function Home() {
           viewport={{ once: false }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold dark:text-green-500">Why We Exist</h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-200">
+          <h2 className="text-4xl font-bold">Why We Exist</h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-400">
             Millions of people lack access to quality education, sustainable
             livelihoods, and basic environmental protection. We exist to bridge
             this gap by empowering communities with scalable solutions.
@@ -313,25 +322,24 @@ export default function Home() {
 
       {/* IMPACT */}
 
-      <section className="bg-gray-100 dark:bg-gray-500 py-16 px-4 ">
+      <section className="bg-gray-100 py-16 px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ amount: 0.3 }} // NOT once
-          className="max-w-7xl mx-auto "
+          className="max-w-7xl mx-auto"
         >
-          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12 dark:text-green-400">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12">
             Our Impact
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 dark:text-green-400">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             <ImpactItem
               value={20}
               suffix="+"
               label="Children"
               description="Children and families impacted every year"
-             
             />
             <ImpactItem
               value={2000}
@@ -355,13 +363,13 @@ export default function Home() {
         </motion.div>
       </section>
 
-     {/* OUR PROGRAMS */}
-<section id="programs" className="py-28 px-6 bg-white dark:bg-gray-950">
+      {/* OUR PROGRAMS (VERTICAL) */}
+      <section id="programs" className="py-28 px-6 bg-white dark:bg-gray-950">
   <motion.div
     variants={fadeUp}
     initial="hidden"
     whileInView="visible"
-    viewport={{ once: true }}
+    viewport={{ once: false }}
     className="max-w-4xl mx-auto text-center mb-20"
   >
     <h2 className="text-4xl font-bold">Our Programs</h2>
@@ -381,51 +389,54 @@ export default function Home() {
     {/* LEFT COLUMN */}
     <div className="space-y-16">
       <ProgramItem
-        icon={<FaLeaf />}
-        color="text-green-600 bg-green-100"
+       image={enovironmentImg}
         title="ENVIRONMENT & CLIMATE ACTION"
+        titleColor="text-green-300 dark:text-green-300"
         desc="Promoting sustainability, conservation, and climate resilience within communities."
         onClick={() => navigate("/environment")}
       />
 
       <ProgramItem
-        icon={<FaUsers />}
-        color="text-teal-600 bg-teal-100"
+       image={enterpreneurImg}
         title="ENTREPRENEURSHIP & INNOVATION"
+        titleColor="text-blue-300 dark:text-blue-300"
         desc="Supporting entrepreneurs and startups to create inclusive economic opportunities."
         onClick={() => navigate("/entrepreneurship")}
       />
 
       <ProgramItem
-        icon={<FaLightbulb />}
-        color="text-yellow-600 bg-yellow-100"
-        title="EDUCATION & SKILL DEVELOPMENT"
-        desc="Enhancing learning outcomes and employability through education and training."
-        onClick={() => navigate("/education")}
-      />
+  image={educationImg}
+  title="EDUCATION & SKILL DEVELOPMENT"
+  titleColor="text-pink-300 dark:text-pink-300"
+  desc="Enhancing learning outcomes and employability through education and training."
+  onClick={() => navigate("/education")}
+/>
+
+
+
     </div>
 
     {/* RIGHT COLUMN */}
     <div className="space-y-16">
       <ProgramItem
-        icon={<FaHandHoldingHeart />}
-        color="text-purple-600 bg-purple-100"
+        image={healthImg}
+        titleColor="text-purple-300 dark:text-purple-300"
         title="HEALTH & HYGIENE"
         desc="Improving healthcare access and hygiene awareness in underserved communities."
         onClick={() => navigate("/health")}
       />
 
       <ProgramItem
-        icon={<FaUsers />}
-        color="text-pink-600 bg-pink-100"
+        image={womenImg}
+        titleColor="text-pink-400 dark:text-pink-400"
         title="WOMEN EMPOWERMENT"
         desc="Empowering women through education, leadership, and community participation."
         onClick={() => navigate("/women-empowerment")}
       />
 
       <ProgramItem
-        icon={<FaUsers />}
-        color="text-orange-600 bg-orange-100"
+        image={ruralImg}
+        titleColor="text-orange-300 dark:text-orange-400"
         title="RURAL DEVELOPMENT & LIVELIHOOD"
         desc="Strengthening rural economies and sustainable livelihood opportunities."
         onClick={() => navigate("/rural-development")}
@@ -460,47 +471,38 @@ export default function Home() {
             {
               title: "Building Sustainable Communities",
               date: "March 2025",
-              desc: "How grassroots initiatives are transforming rural livelihoods.",
-              addr:"/educationBlog",
+              desc: "How grassroots initiatives are transforming rural livelihoods."
             },
             {
               title: "Education as a Catalyst for Change",
               date: "February 2025",
-              desc: "Why skill-based education matters more than ever.",
-              addr:"/educationBlog",
+              desc: "Why skill-based education matters more than ever."
             },
             {
               title: "Women Leading the Way",
               date: "January 2025",
-              desc: "Stories of women creating impact in their communities.",
-              addr:"/educationBlog",
+              desc: "Stories of women creating impact in their communities."
             },
             {
               title: "Innovation in Social Development",
               date: "December 2024",
-              desc: "Using technology to solve real-world problems.",
-              addr:"/educationBlog",
+              desc: "Using technology to solve real-world problems."
             },
             {
               title: "Health & Hygiene Awareness",
               date: "November 2024",
-              desc: "Small habits that lead to healthier communities.",
-              addr:"/educationBlog",
+              desc: "Small habits that lead to healthier communities."
             },
             {
               title: "Climate Action at the Local Level",
               date: "October 2024",
-              desc: "How local actions contribute to global impact.",
-              addr:"/educationBlog",
+              desc: "How local actions contribute to global impact."
             }
           ].map((blog, index) => (
             <motion.div
               key={index}
               variants={fadeUp}
               className="bg-white dark:bg-gray-950 rounded-xl shadow-md p-6 hover:shadow-lg transition"
-              onClick={()=>
-                navigate(`${blog.addr}`)
-              }
             >
               <p className="text-sm text-primary font-semibold">{blog.date}</p>
               <h3 className="mt-3 text-xl font-bold">{blog.title}</h3>
