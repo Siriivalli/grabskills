@@ -124,7 +124,7 @@ export default function Navbar() {
             <motion.button 
               whileHover={{ scale: 1.1, italic: true }}
               onClick={() => scrollToSection("programs")}
-              className="dark:text-white"
+              className="text-green-500 dark:text-white"
             >
               Programs
             </motion.button>
@@ -151,7 +151,7 @@ export default function Navbar() {
 function MobileLink({ to, label, onClick }) {
   return (
     <motion.div whileHover={{ x: 10 }} whileTap={{ scale: 0.9 }}>
-      <Link to={to} onClick={onClick} className="dark:text-white bg-gradient-to-r from-green-600 to-emerald-400 bg-clip-text hover:text-transparent">
+      <Link to={to} onClick={onClick} className="text-green-500 dark:text-white bg-gradient-to-r from-green-600 to-emerald-400 bg-clip-text hover:text-transparent">
         {label}
       </Link>
     </motion.div>

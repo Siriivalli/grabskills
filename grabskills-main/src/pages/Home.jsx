@@ -1,10 +1,6 @@
 import { motion, useMotionValue, animate, useInView, useScroll, useTransform } from "framer-motion";
 import { useEffect, useState, useRef } from "react";
-
-import { FaLeaf, FaUsers, FaLightbulb, FaHandHoldingHeart } from "react-icons/fa";
-import FocusCard from "../components/FocusCard";
 import { useNavigate } from "react-router-dom";
-
 import educationImg from "../assets/eduicon.png";
 import enovironmentImg from "../assets/environmenticon.png";
 import womenImg from "../assets/womenicon.png";
@@ -44,13 +40,13 @@ const ImpactItem = ({ value, suffix, label, description }) => {
 
   return (
     <div ref={ref} className="text-center">
-      <h3 className="text-4xl sm:text-5xl font-bold text-green-500">
+      <h3 className="text-4xl sm:text-5xl font-bold text-green-500 dark:text-blue-600">
         {count}{suffix}
       </h3>
-      <p className="uppercase tracking-wide text-sm font-semibold mt-2">
+      <p className="uppercase tracking-wide text-sm font-semibold mt-2 dark:text-white">
         {label}
       </p>
-      <p className="text-gray-600 text-sm mt-1 max-w-xs mx-auto">
+      <p className="text-gray-600 text-sm mt-1 max-w-xs mx-auto dark:text-white">
         {description}
       </p>
     </div>
@@ -132,6 +128,19 @@ function Counter({ value, suffix = "" }) {
 
 export default function Home() {
   const navigate = useNavigate();
+
+  // Animation for the background floating blobs
+  const blobVariants = {
+    animate: {
+      scale: [1, 1.1, 1],
+      rotate: [0, 90, 0],
+      transition: {
+        duration: 10,
+        repeat: Infinity,
+        ease: "linear"
+      }
+    }
+  };
   // Animation Variants
   const line1Variant = {
     hidden: { x: "-100vw", opacity: 0 },
@@ -228,7 +237,7 @@ export default function Home() {
               initial={{ x: -2000 }}
               animate={{ x: 0 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="text-5xl md:text-7xl font-black text-white drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]"
+              className="text-5xl md:text-7xl font-black text-white dark:text-green-500 drop-shadow-[0_5px_15px_rgba(0,0,0,0.5)]"
             >
               Empowering Communities
             </motion.h1>
@@ -241,7 +250,7 @@ export default function Home() {
               initial={{ x: 2000 }}
               animate={{ x: 0 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="text-5xl md:text-7xl font-black text-green-400 drop-shadow-[0_5px_15px_rgba(34,197,94,0.3)]"
+              className="text-5xl md:text-7xl font-black text-green-400 dark:text-white drop-shadow-[0_5px_15px_rgba(34,197,94,0.3)]"
             >
               for a Better Tomorrow
             </motion.h1>
@@ -258,7 +267,7 @@ export default function Home() {
             className="mx-auto max-w-2xl min-h-[3rem] text-center"
           // Prevents layout shift
           >
-            <p className="text-lg md:text-xl text-gray-100 font-medium leading-relaxed drop-shadow-lg">
+            <p className="text-lg md:text-xl text-gray-100 dark:text-green-500 font-medium leading-relaxed drop-shadow-lg">
               {subText.split("").map((char, index) => (
                 <motion.span key={index} variants={letterVariant}>
                   {char}
@@ -288,7 +297,7 @@ export default function Home() {
                 section.scrollIntoView({behavior:"smooth"});
               }
             }}
-            className="mt-10 bg-green-500 text-black px-10 py-4 rounded-full font-bold text-lg uppercase tracking-widest shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all"
+            className="mt-10 bg-green-500 dark:text-black text-white px-10 py-4 rounded-full font-bold text-lg uppercase tracking-widest shadow-[0_0_20px_rgba(34,197,94,0.5)] transition-all"
           >
             Explore programs
           </motion.button>
@@ -303,7 +312,7 @@ export default function Home() {
       </section>
 
       {/* WHY */}
-      <section className="py-20 dark:bg-gray-900 px-6">
+      <section className="py-20 dark:bg-black px-6">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -311,8 +320,8 @@ export default function Home() {
           viewport={{ once: false }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why We Exist</h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
+          <h2 className="text-4xl font-bold dark:text-green-500">Why We Exist</h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-300">
             Millions of people lack access to quality education, sustainable
             livelihoods, and basic environmental protection. We exist to bridge
             this gap by empowering communities with scalable solutions.
@@ -322,7 +331,7 @@ export default function Home() {
 
       {/* IMPACT */}
 
-      <section className="bg-gray-100 py-16 px-4">
+      <section className="bg-gray-100 dark:bg-green-500 py-16 px-4">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -330,7 +339,7 @@ export default function Home() {
           viewport={{ amount: 0.3 }} // NOT once
           className="max-w-7xl mx-auto"
         >
-          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12 dark:text-white">
             Our Impact
           </h2>
 
@@ -364,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* OUR PROGRAMS (VERTICAL) */}
-      <section id="programs" className="py-28 px-6 bg-white dark:bg-gray-950">
+      <section id="programs" className="py-10 px-6 bg-white dark:bg-gray-950 dark:text-green-500">
   <motion.div
     variants={fadeUp}
     initial="hidden"
@@ -373,7 +382,7 @@ export default function Home() {
     className="max-w-4xl mx-auto text-center mb-20"
   >
     <h2 className="text-4xl font-bold">Our Programs</h2>
-    <p className="mt-4 text-gray-600 dark:text-gray-400">
+    <p className="mt-4 text-gray-600 dark:text-gray-300">
       We work across key areas to create sustainable, long-term impact at the grassroots level.
     </p>
   </motion.div>
@@ -446,7 +455,7 @@ export default function Home() {
 </section>
 
       {/* BLOGS */}
-      <section className="py-24 px-6 bg-gray-100 dark:bg-gray-900">
+      <section className="py-12 px-6 bg-gray-100 dark:bg-gray-800 ">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -454,8 +463,8 @@ export default function Home() {
           viewport={{ once: false }}
           className="max-w-4xl mx-auto text-center mb-16"
         >
-          <h2 className="text-4xl font-bold">Latest Blogs</h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
+          <h2 className="text-4xl font-bold dark:text-green-500">Latest Blogs</h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-300">
             Insights, stories, and updates from our work on the ground.
           </p>
         </motion.div>
@@ -505,8 +514,8 @@ export default function Home() {
               className="bg-white dark:bg-gray-950 rounded-xl shadow-md p-6 hover:shadow-lg transition"
             >
               <p className="text-sm text-primary font-semibold">{blog.date}</p>
-              <h3 className="mt-3 text-xl font-bold">{blog.title}</h3>
-              <p className="mt-3 text-gray-600 dark:text-gray-400 text-sm">
+              <h3 className="mt-3 text-xl font-bold dark:text-white">{blog.title}</h3>
+              <p className="mt-3 text-gray-600 dark:text-gray-300 text-sm">
                 {blog.desc}
               </p>
 
@@ -519,18 +528,95 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-primary text-white text-center px-6">
-        <h2 className="text-4xl font-bold">Be the Change</h2>
-        <p className="mt-4">
-          Join us in creating a sustainable and inclusive future.
-        </p>
-        <motion.button
-          onClick={() => navigate("/contact")}
-          className="mt-6 px-8 py-3 bg-white text-primary rounded-lg font-semibold"
+     <section className="relative overflow-hidden bg-white dark:bg-gray-950 py-14 md:py-32 px-6">
+      
+      {/*  ANIMATED BACKGROUND ELEMENTS */}
+      <div className="absolute inset-0 z-0 opacity-20 dark:opacity-30 pointer-events-none">
+        <motion.div 
+          variants={blobVariants}
+          animate="animate"
+          className="absolute -top-20 -left-20 w-96 h-96 bg-green-400 rounded-full blur-[100px]"
+        />
+        <motion.div 
+          variants={blobVariants}
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 50, 0],
+            transition: { duration: 8, repeat: Infinity }
+          }}
+          className="absolute -bottom-20 -right-20 w-[500px] h-[500px] bg-emerald-500 rounded-full blur-[120px]"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-5xl mx-auto text-center">
+        {/* SMALL TOP LABEL */}
+        <motion.span 
+          initial={{ opacity: 0, letterSpacing: "0.1em" }}
+          whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
+          className="inline-block uppercase text-sm font-bold text-green-600 dark:text-green-400 mb-6 tracking-widest"
         >
-          Contact Us
-        </motion.button>
-      </section>
+          Our Shared Future
+        </motion.span>
+
+        {/* MAIN HEADLINE WITH STAGGERED REVEAL */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white leading-[0.9] mb-8"
+        >
+          BE THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-400">CHANGE</span> <br />
+          YOU WISH TO SEE.
+        </motion.h2>
+
+        {/* SUPPORTING TEXT */}
+        <motion.p 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+        >
+          We aren't just building projects; we are building hope. Join 5,000+ volunteers 
+          and donors dedicated to creating a sustainable and inclusive future for all.
+        </motion.p>
+
+        {/* HIGH-END INTERACTIVE BUTTON */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 100 }}
+        >
+          <button className="group relative px-10 py-5 bg-green-600 text-white font-bold rounded-full overflow-hidden transition-all hover:pr-14 active:scale-95 shadow-xl shadow-green-500/20
+          " onClick={()=>navigate("/contact")}>
+            <span className="relative z-10">Start Your Journey Today</span>
+            <span className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all">
+              →
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </button>
+        </motion.div>
+
+        {/* BOTTOM DECORATION: STATS OR SOCIAL PROOF */}
+        <div className="mt-20 flex flex-wrap justify-center gap-8 md:gap-16 border-t border-green-200 dark:border-green-900 pt-12">
+           {[
+             { label: "Community Support", val: "98%" },
+             { label: "Transparency Score", val: "A+" },
+             { label: "Global Reach", val: "14 countries" }
+           ].map((item, i) => (
+             <motion.div 
+               key={i}
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ delay: 0.2 * i }}
+               className="text-left"
+             >
+               <p className="text-3xl font-bold text-gray-900 dark:text-white">{item.val}</p>
+               <p className="text-xs uppercase tracking-tighter text-gray-400">{item.label}</p>
+             </motion.div>
+           ))}
+        </div>
+      </div>
+    </section>
 
     </div>
   );
