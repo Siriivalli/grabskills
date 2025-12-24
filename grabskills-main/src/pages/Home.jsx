@@ -2,8 +2,9 @@ import { motion, useMotionValue, animate, useInView, useScroll, useTransform } f
 import { useEffect, useState, useRef } from "react";
 
 import { FaLeaf, FaUsers, FaLightbulb, FaHandHoldingHeart } from "react-icons/fa";
-import FocusCard from "../components/FocusCard";
+import background from "../assets/backgroung.avif";
 import { useNavigate } from "react-router-dom";
+
 
 
 const ImpactItem = ({ value, suffix, label, description }) => {
@@ -36,13 +37,13 @@ const ImpactItem = ({ value, suffix, label, description }) => {
 
   return (
     <div ref={ref} className="text-center">
-      <h3 className="text-4xl sm:text-5xl font-bold text-green-500">
+      <h3 className="text-4xl sm:text-5xl font-bold text-green-500 dark:text-white">
         {count}{suffix}
       </h3>
       <p className="uppercase tracking-wide text-sm font-semibold mt-2">
         {label}
       </p>
-      <p className="text-gray-600 text-sm mt-1 max-w-xs mx-auto">
+      <p className="text-gray-600 dark:text-green-400 text-sm mt-1 max-w-xs mx-auto">
         {description}
       </p>
     </div>
@@ -198,7 +199,7 @@ export default function Home() {
           }}
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=2070')`, // Replace with your heroImage variable
+            backgroundImage: `url(${background})`, // Replace with your heroImage variable
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -293,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* WHY */}
-      <section className="py-20 dark:bg-gray-900 px-6">
+      <section className="py-20 dark:bg-gray-800 px-6">
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -301,8 +302,8 @@ export default function Home() {
           viewport={{ once: false }}
           className="max-w-4xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold">Why We Exist</h2>
-          <p className="mt-4 text-gray-600 dark:text-gray-400">
+          <h2 className="text-4xl font-bold dark:text-green-500">Why We Exist</h2>
+          <p className="mt-4 text-gray-600 dark:text-gray-200">
             Millions of people lack access to quality education, sustainable
             livelihoods, and basic environmental protection. We exist to bridge
             this gap by empowering communities with scalable solutions.
@@ -312,24 +313,25 @@ export default function Home() {
 
       {/* IMPACT */}
 
-      <section className="bg-gray-100 py-16 px-4">
+      <section className="bg-gray-100 dark:bg-gray-500 py-16 px-4 ">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ amount: 0.3 }} // NOT once
-          className="max-w-7xl mx-auto"
+          className="max-w-7xl mx-auto "
         >
-          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold mb-12 dark:text-green-400">
             Our Impact
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 dark:text-green-400">
             <ImpactItem
               value={20}
               suffix="+"
               label="Children"
               description="Children and families impacted every year"
+             
             />
             <ImpactItem
               value={2000}
@@ -458,38 +460,47 @@ export default function Home() {
             {
               title: "Building Sustainable Communities",
               date: "March 2025",
-              desc: "How grassroots initiatives are transforming rural livelihoods."
+              desc: "How grassroots initiatives are transforming rural livelihoods.",
+              addr:"/educationBlog",
             },
             {
               title: "Education as a Catalyst for Change",
               date: "February 2025",
-              desc: "Why skill-based education matters more than ever."
+              desc: "Why skill-based education matters more than ever.",
+              addr:"/educationBlog",
             },
             {
               title: "Women Leading the Way",
               date: "January 2025",
-              desc: "Stories of women creating impact in their communities."
+              desc: "Stories of women creating impact in their communities.",
+              addr:"/educationBlog",
             },
             {
               title: "Innovation in Social Development",
               date: "December 2024",
-              desc: "Using technology to solve real-world problems."
+              desc: "Using technology to solve real-world problems.",
+              addr:"/educationBlog",
             },
             {
               title: "Health & Hygiene Awareness",
               date: "November 2024",
-              desc: "Small habits that lead to healthier communities."
+              desc: "Small habits that lead to healthier communities.",
+              addr:"/educationBlog",
             },
             {
               title: "Climate Action at the Local Level",
               date: "October 2024",
-              desc: "How local actions contribute to global impact."
+              desc: "How local actions contribute to global impact.",
+              addr:"/educationBlog",
             }
           ].map((blog, index) => (
             <motion.div
               key={index}
               variants={fadeUp}
               className="bg-white dark:bg-gray-950 rounded-xl shadow-md p-6 hover:shadow-lg transition"
+              onClick={()=>
+                navigate(`${blog.addr}`)
+              }
             >
               <p className="text-sm text-primary font-semibold">{blog.date}</p>
               <h3 className="mt-3 text-xl font-bold">{blog.title}</h3>

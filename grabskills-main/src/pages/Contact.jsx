@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 px-6 py-16">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 px-6 py-20">
       <div className="max-w-6xl mx-auto">
 
         {/* HEADER */}

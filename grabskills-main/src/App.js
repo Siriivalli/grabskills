@@ -13,6 +13,7 @@ import Entrepreneurship from "./pages/entrepreneurship";
 import Womenempowerment from "./pages/women-empowerment";
 import Education from "./pages/education";
 import Rural from "./pages/rural-development";
+import EducationBlog from "./pages/EducationBlog";
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
           <Route path="/women-empowerment" element={<Womenempowerment />} />
            <Route path="/education" element={<Education />} />
            <Route path="/rural-development" element={<Rural />} />
+           <Route path="/educationBlog" element={<EducationBlog />} />
         </Routes>
 
         <Footer />
