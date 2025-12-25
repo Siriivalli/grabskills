@@ -576,7 +576,7 @@ export default function Home() {
           transition={{ delay: 0.3 }}
           className="text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          We aren't just building projects; we are building hope. Join 5,000+ volunteers 
+          We aren't just building projects, we are building hope. Join 5,000+ volunteers 
           and donors dedicated to creating a sustainable and inclusive future for all.
         </motion.p>
 
