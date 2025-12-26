@@ -485,7 +485,8 @@ export default function Home() {
             {
               title: "Education as a Catalyst for Change",
               date: "February 2025",
-              desc: "Why skill-based education matters more than ever."
+              desc: "Why skill-based education matters more than ever.",
+              adr:"/educationBlog",
             },
             {
               title: "Women Leading the Way",
@@ -512,6 +513,7 @@ export default function Home() {
               key={index}
               variants={fadeUp}
               className="bg-white dark:bg-gray-950 rounded-xl shadow-md p-6 hover:shadow-lg transition"
+              onClick={() => navigate(blog.adr)}
             >
               <p className="text-sm text-primary font-semibold">{blog.date}</p>
               <h3 className="mt-3 text-xl font-bold dark:text-white">{blog.title}</h3>

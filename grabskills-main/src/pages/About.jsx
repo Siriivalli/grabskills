@@ -109,7 +109,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-4xl mx-auto text-center"
         >
           <h2 className="text-4xl font-bold mb-6">Who We Are</h2>
@@ -134,7 +134,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-5xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-10">
@@ -165,7 +165,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-6xl mx-auto text-center"
         >
           <h2 className="text-4xl font-bold mb-16">Our Impact</h2>
@@ -209,7 +209,7 @@ export default function About() {
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-4xl md:text-5xl font-bold text-center mb-28"
           >
             Our Journey
@@ -219,7 +219,7 @@ export default function About() {
             <motion.div
               initial={{ height: 0 }}
               whileInView={{ height: "100%" }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 2.5, ease: "easeOut" }}
               className="absolute left-1/2 -translate-x-1/2 w-1 bg-gradient-to-b from-indigo-400 via-purple-400 to-pink-400"
             />
@@ -235,7 +235,7 @@ export default function About() {
                 variants={slideDown}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className={`relative mb-28 flex ${
                   index % 2 === 0 ? "justify-start" : "justify-end"
                 }`}
@@ -252,7 +252,7 @@ export default function About() {
                 <motion.span
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ duration: 1.2, ease: "easeOut" }}
                   className="absolute left-1/2 -translate-x-1/2 top-10 w-16 h-16 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 border-8 border-white dark:border-gray-900 shadow-lg"
                 />
@@ -268,7 +268,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-6xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-10">
@@ -307,7 +307,7 @@ export default function About() {
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="max-w-6xl mx-auto text-center"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-10">
@@ -360,7 +360,7 @@ export default function About() {
     <motion.span
       initial={{ opacity: 0, letterSpacing: "0.1em" }}
       whileInView={{ opacity: 1, letterSpacing: "0.3em" }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       className="inline-block uppercase text-sm font-bold text-green-600 dark:text-green-400 mb-6 tracking-widest"
     >
       Our Shared Future
@@ -370,7 +370,7 @@ export default function About() {
     <motion.h2
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white leading-tight mb-8"
     >
@@ -386,7 +386,7 @@ export default function About() {
     <motion.p
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ delay: 0.3 }}
       className="text-sm md:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed"
     >
@@ -399,7 +399,7 @@ export default function About() {
     <motion.div
       initial={{ scale: 0.85, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ type: "spring", stiffness: 120 }}
     >
       <button
@@ -425,7 +425,7 @@ export default function About() {
           key={i}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ delay: 0.2 * i }}
           className="text-left"
         >
